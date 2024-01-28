@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Fox Python</title>
-  <link href="styles.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/atom-one-dark.min.css">
+  <link id="styleLink" rel="stylesheet" href="styles-neon.css">
+  <link id="styleCode" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/agate.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +15,15 @@
   <div class="container">
     <h1 id="FirstHeader">О базе Python на простом языке</h1>
 
+    <div class="card outline-blue bluebox">
+      <label for="cssSelector">Выберите тему сайта:</label>
+      <select id="cssSelector" onchange="changeCSS()">
+          <option value="styles-neon.css">Неон</option>
+          <option value="styles-gold.css">Пустыня</option>
+          <option value="styles-gold.css">Джунгли</option>
+          <option value="styles-gold.css">Пляж</option>
+      </select>
+    </div>
     <div class="card outline-blue bluebox">
       <h2>Ссылки на другие темы</h2>
       <ul class="list bluebox">
@@ -83,6 +92,12 @@ Hello, Foxford!
       </code></pre>
     </div>
   </div>
+  <script>
+    function changeCSS() {
+        var selectedValue = document.getElementById("cssSelector").value;
+        document.getElementById("styleLink").setAttribute("href", selectedValue);
+    }
+</script>
 </body>
 <script>
   document.addEventListener('DOMContentLoaded', (event) => {
