@@ -97,11 +97,11 @@ body::-webkit-scrollbar-thumb {
     color: #c2af87f1;
 }
 a{
-    text-decoration: none;
+    text-decoration:underline;
     color: #c2af87f1;
 }
 a:hover {
-    text-decoration:underline;
+    text-decoration:none;
 }
 a:active {
     color: #e6d7b6f1;
