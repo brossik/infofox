@@ -101,16 +101,22 @@ body::-webkit-scrollbar-thumb {
     border-color: #7db1ff85;
     box-shadow: 0 0 50px #0099ff44;
     color: #7db1ff;
-    a:hover {
-        text-decoration:underline;
-    }
-    a:active {
-        color: #ffffff;
-    }
-    a{
-        text-decoration: none;
-        color: #a2c7ff;
-    }
+}
+
+a{
+    text-decoration: none;
+    color: #a2c7ff;
+}
+a:hover {
+    text-decoration:underline;
+}
+a:active {
+    color: #ffffff;
+}
+a:-webkit-any-link {
+    color: #a2c7ff;
+    text-decoration: underline;
+    cursor: auto;
 }
 .CodeBlock {
     border-color: #ff009d73;

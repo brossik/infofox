@@ -95,16 +95,16 @@ body::-webkit-scrollbar-thumb {
     border-color: #313131;
     box-shadow: 0 0 30px #50505052;
     color: #c2af87f1;
-    a:hover {
-        text-decoration:underline;
-    }
-    a:active {
-        color: #e6d7b6f1;
-    }
-    a{
-        text-decoration: none;
-        color: #c2af87f1;
-    }
+}
+a{
+    text-decoration: none;
+    color: #c2af87f1;
+}
+a:hover {
+    text-decoration:underline;
+}
+a:active {
+    color: #e6d7b6f1;
 }
 .CodeBlock {
     border-color: #313131;
