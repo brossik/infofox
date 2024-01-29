@@ -113,11 +113,6 @@ a:hover {
 a:active {
     color: #ffffff;
 }
-a:-webkit-any-link {
-    color: #a2c7ff;
-    text-decoration: underline;
-    cursor: auto;
-}
 .CodeBlock {
     border-color: #ff009d73;
     box-shadow: 0 0 50px #ff002244;
