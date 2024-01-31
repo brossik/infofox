@@ -121,6 +121,67 @@ a:active {
     box-shadow: 0 0 30px #50505052;
     color: #c2af87f1;
 }
+.CalculatorBlock {
+    padding: 15px 25px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    border: 3px solid #313131;
+    box-shadow: 0 0 50px #50505052;
+    color: #c462eb;
+}
+
+.CalculatorBlock h2 {
+    color: #c2af87f1;
+}
+
+.CalculatorBlock label {
+    color: #dbc698ee;
+}
+
+.CalculatorBlock input {
+    padding: 8px;
+    border-radius: 10px;
+    border: 2px solid #313131;
+    background-color: #1b1b1b;
+    color: #b9b9b9;
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    outline: none;
+    margin-top: 10px;
+}
+
+.CalculatorBlock button {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #272727;
+    color: #c2af87f1;
+    font-family: "Rubik", sans-serif;
+    font-style: normal;
+    border: 2px solid #313131;
+    cursor: pointer;
+    outline: none;
+}
+
+.CalculatorBlock button:hover {
+    background-color: #2e2e2e;
+}
+
+.CalculatorBlock #result {
+    color: #da8df8dc;
+    background-color: #272727;
+    border-radius: 10px;
+    border: 2px solid #313131;
+    font-family: "Rubik", sans-serif;
+    font-style: normal;
+    padding: 12px;
+    box-sizing: border-box;
+    min-width: 40%;
+    min-height: 45px;
+    max-width: max-content;
+    text-align: left;
+    text-wrap: wrap;
+}
 
 pre code.python {
     display: block;
@@ -195,84 +256,50 @@ pre code.hljs
     background: #1d1d1d;
 }
 
-/* Media Queries */
+.card select,
+.card select option,
+.card select option:hover,
+.CalculatorBlock label,
+.CalculatorBlock input,
+.CalculatorBlock button,
+.CalculatorBlock #result,
+pre code.python {
+    font-size: 1rem;
+}
+
+.CalculatorBlock h2 {
+    font-size: 1.5rem;
+}
+
+/* Your media queries... */
 @media screen and (max-width: 1200px) {
-    .container {
-        max-width: 80%;
-    }
-
-    h1 {
-        font-size: 32px;
-    }
-
-    h2 {
-        font-size: 25px;
-    }
-
     body {
-        font-size: 22px;
+        font-size: 0.875rem; /* 14px / 16px = 0.875rem */
     }
-    pre code.python {
-        font-size: 20px;
-    }
+
+    /* Other font size adjustments as needed... */
 }
 
 @media screen and (max-width: 998px) {
-    .container {
-        max-width: 90%;
-    }
-
-    h1,
-    h2 {
-        font-size: 26px;
-    }
-
     body {
-        font-size: 18px;
+        font-size: 1rem;
     }
-    pre code.python {
-        font-size: 18px;
-    }
+
+    /* Other font size adjustments as needed... */
 }
 
 @media screen and (max-width: 768px) {
-    .container {
-        max-width: 99%;
-    }
-
-    h1 {
-        font-size: 25px;
-    }
-
-    h2 {
-        font-size: 21px;
-    }
-
     body {
-        font-size: 17px;
+        font-size: 0.875rem;
     }
-    pre code.python {
-        font-size: 13px;
-    }
+
+    /* Other font size adjustments as needed... */
 }
 
 @media screen and (max-width: 576px) {
-    .container {
-        max-width: 99%;
-    }
-
-    h1 {
-        font-size: 24px;
-    }
-
-    h2 {
-        font-size: 20px;
-    }
-
     body {
-        font-size: 15px;
+        font-size: 0.75rem; /* 12px / 16px = 0.75rem */
     }
-    pre code.python {
-        font-size: 13px;
-    }
+
+    /* Other font size adjustments as needed... */
 }

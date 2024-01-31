@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fox Python</title>
+  <link id="styleCode" rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/agate.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <link id="styleLink" rel="stylesheet" href="styles-neon.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1 id="FirstHeader">Решение задания 1</h1>
+
+    <div class="card ChangeThemeBlock">
+      <label for="cssSelector">Выберите тему сайта:</label>
+      <select id="cssSelector" onchange="changeCSS()">
+        <option value="styles-neon.css">Неон</option>
+        <option value="styles-gold.css">Пустыня</option>
+      </select>
+    </div>
+    <div class="card LinkBlock">
+      <h2>Ссылки на другие темы</h2>
+      <ul class="list bluebox">
+        <li><a href="https://foxford.ru/courses/8903/lessons/238183" target="_blank">Вывод текста в программе</a></li>
+        <li><a href="https://foxford.ru/courses/8903/lessons/238184" target="_blank">Ввод текста пользователем</a></li>
+        <li><a href="https://foxford.ru/courses/8903/lessons/238185" target="_blank">Пример программы для перевода
+            килограмм в граммы</a></li>
+      </ul>
+    </div>
+    <div class="card TheoryBlock">
+      <h2>Кодирование звуковой информации</h2>
+      <pre><code class="python">
+Для решения задачи надо:
+1. Определить сколько каналов у аудио (1, 2)
+2. Определить частоту дискретизации (кГц)
+3. Определить вес одного герца (биты)
+4. Определить вес файла (обычно Мб)
+5. Ввести данные в калькулятор внизу страницы
+
+</code></pre>
+    </div>
+    <div class="card TheoryBlock">
+      <h2>Пример задачи из экзамена</h2>
+      <pre><code class="python">
+Объем файла, записанного с помощью двухканальной (стерео)
+звукозаписи с частотой дискретизации 32 кГц и 32-битным разрешением равен 30 Мб.
+Сжатие не производилось. Определите примерное время звучания файла (в минутах).
+
+</code></pre>
+    </div>
+    <div class="card TheoryBlock">
+      <h2>Решение задачи</h2>
+      <pre><code class="python">
+1. В задаче сказано что записть 2-канальная
+2. Частота дискретизации: 32 кГц
+3. Вес одного герца: 32 бита
+4. Вес файла 30 Мб
+5. Вводим данные в калькулятор
+6. Ответ приблизительно 2 минуты
+
+</code></pre>
+    </div>
+    <div class="card CalculatorBlock">
+      <h2>Аудио-калькулятор</h2>
+      <pre><code class="python">
+<label for="channels">Количество каналов:</label>
+<input type="number" id="channels" min="1" required><br>
+
+<label for="samplingFrequency">Частота дискретизации (кГц):</label>
+<input type="number" id="samplingFrequency" min="1" required><br>
+
+<label for="bitDepth">Вес одного герца (биты):</label>
+<input type="number" id="bitDepth" min="1" required><br>
+
+<label for="fileSize">Вес файла (Мб):</label>
+<input type="number" id="fileSize" min="1" required><br>
+
+<button onclick="calculateLength()">Рассчитать</button>
+
+<p id="result"></p></code></pre>
+    </div>
+  </div>
+  <script>
+    function calculateLength() {
+      var channels = parseInt(document.getElementById("channels").value);
+      var samplingFrequency = parseInt(document.getElementById("samplingFrequency").value);
+      var bitDepth = parseInt(document.getElementById("bitDepth").value);
+      var fileSize = parseFloat(document.getElementById("fileSize").value);
+      var fileLengthInBits = fileSize * 1024 * 1024 * 8;
+      var lengthInSeconds = fileLengthInBits / (channels * samplingFrequency * 1000 * bitDepth);
+      var lengthInMinutes = lengthInSeconds / 60;
+      var ending = getMinutesEnding(lengthInMinutes);
+
+      document.getElementById("result").innerHTML = "Время звучания файла: " + lengthInMinutes.toFixed(0) + " " + ending;
+    }
+    function getMinutesEnding(minutes) {
+    var lastDigit = minutes % 10;
+    var lastTwoDigits = minutes % 100;
+    
+    if (lastTwoDigits >= 11 && lastTwoDigits <= 19) {
+        return 'минут';
+    } else if (lastDigit === 1) {
+        return 'минута';
+    } else if (lastDigit >= 2 && lastDigit <= 4) {
+        return 'минуты';
+    } else {
+        return 'минут';
+    }
+}
+  </script>
+  <script>
+    function changeCSS() {
+      var selectedValue = document.getElementById("cssSelector").value;
+      document.getElementById("styleLink").setAttribute("href", selectedValue);
+    }
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      hljs.highlightBlock(document.querySelector('code.python'));
+    });
+  </script>
+
+</body>
+
+</html>
