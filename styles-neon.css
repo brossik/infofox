@@ -97,7 +97,10 @@ body::-webkit-scrollbar-thumb {
 .ChangeThemeBlock {
     border-color: #7db1ff85;
     box-shadow: 0 0 50px #0099ff44;
-    color: #7db1ff;
+    color: #7db1ff; 
+}
+.ChangeThemeBlock select{
+    max-width: 25%;
 }
 .LinkBlock {
     border-color: #7db1ff85;
@@ -177,7 +180,7 @@ a:active {
     background-color: #321644;
 }
 
-.CalculatorBlock #result {
+/*.CalculatorBlock #result {
     color: #da8df8dc;
     background-color: #190f2e;
     border-radius: 10px;
@@ -191,7 +194,7 @@ a:active {
     max-width: max-content;
     text-align: left;
     text-wrap: wrap;
-}
+}*/
 
 pre code.python {
     display: block;
@@ -266,10 +269,13 @@ pre code.hljs
     background: #1d1d1d;
 }
 
+label{
+    font-size: 1.2rem;
+}
+.CalculatorBlock label,
 .card select,
 .card select option,
 .card select option:hover,
-.CalculatorBlock label,
 .CalculatorBlock input,
 .CalculatorBlock button,
 .CalculatorBlock #result,
@@ -277,41 +283,53 @@ pre code.python {
     font-size: 1rem;
 }
 
-.CalculatorBlock h2 {
-    font-size: 1.5rem;
-}
-
 /* Your media queries... */
 @media screen and (max-width: 1200px) {
     body {
-        font-size: 0.875rem; /* 14px / 16px = 0.875rem */
+        font-size: 2rem; /* 14px / 16px = 0.875rem */
     }
-
-    /* Other font size adjustments as needed... */
+    h2 {
+        font-size: 1.2rem;
+    }
+    h1{
+        font-size: 1rem;
+    }
 }
 
 @media screen and (max-width: 998px) {
     body {
+        font-size: 1.3rem;
+    }
+    h2 {
         font-size: 1rem;
     }
-
-    /* Other font size adjustments as needed... */
+    h1{
+        font-size: 1rem;
+    }
 }
 
 @media screen and (max-width: 768px) {
     body {
-        font-size: 0.875rem;
+        font-size: 1rem;
     }
-
-    /* Other font size adjustments as needed... */
+    h2 {
+        font-size: 0.8rem;
+    }
+    h1{
+        font-size: 1.1rem;
+    }
 }
 
 @media screen and (max-width: 576px) {
     body {
-        font-size: 0.75rem; /* 12px / 16px = 0.75rem */
+        font-size: 0.9rem; /* 12px / 16px = 0.75rem */
     }
-
-    /* Other font size adjustments as needed... */
+    h2 {
+        font-size: 0.6rem;
+    }
+    h1{
+        font-size: 0.9rem;
+    }
 }
 
 

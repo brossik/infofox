@@ -69,20 +69,23 @@
       <h2>Аудио-калькулятор</h2>
       <pre><code class="python">
 <label for="channels">Количество каналов:</label>
-<input type="number" id="channels" min="1" required><br>
+<input type="number" id="channels" min="1" step="1"><br>
 
 <label for="samplingFrequency">Частота дискретизации (кГц):</label>
-<input type="number" id="samplingFrequency" min="1" required><br>
+<input type="number" id="samplingFrequency" min="1"><br>
 
 <label for="bitDepth">Вес одного герца (биты):</label>
-<input type="number" id="bitDepth" min="1" required><br>
+<input type="number" id="bitDepth" min="1"><br>
 
 <label for="fileSize">Вес файла (Мб):</label>
-<input type="number" id="fileSize" min="1" required><br>
+<input type="number" id="fileSize" min="1"><br>
+
+<label>Длина файла в минутах:</label>
+<input type="text" id="result" readonly><br>
 
 <button onclick="calculateLength()">Рассчитать</button>
 
-<p id="result"></p></code></pre>
+</code></pre>
     </div>
   </div>
   <script>
@@ -91,12 +94,29 @@
       var samplingFrequency = parseInt(document.getElementById("samplingFrequency").value);
       var bitDepth = parseInt(document.getElementById("bitDepth").value);
       var fileSize = parseFloat(document.getElementById("fileSize").value);
+      var input1 = document.getElementById("channels");
+      var input2 = document.getElementById("samplingFrequency");
+      var input3 = (document.getElementById("bitDepth"));
+      var input3 = (document.getElementById("fileSize"));
+
       var fileLengthInBits = fileSize * 1024 * 1024 * 8;
       var lengthInSeconds = fileLengthInBits / (channels * samplingFrequency * 1000 * bitDepth);
-      var lengthInMinutes = lengthInSeconds / 60;
+      var lengthInMinutes = parseInt(lengthInSeconds / 60);
       var ending = getMinutesEnding(lengthInMinutes);
 
-      document.getElementById("result").innerHTML = "Время звучания файла: " + lengthInMinutes.toFixed(0) + " " + ending;
+      var filledCount = (input1.value > 0 ? 1 : 0) + (input2.value > 0 ? 1 : 0) + (input3.value > 0 ? 1 : 0) + (input3.value > 0 ? 1 : 0);
+
+      if(filledCount == 4){
+        if(lengthInMinutes > 0) document.getElementById("result").value = lengthInMinutes.toFixed(0) + " " + ending;
+        else document.getElementById("result").value = "Меньше минуты";
+      }
+      else if(filledCount < 4){
+        document.getElementById("result").value = "Заполните 4 поля";
+      }
+      else if(filledCount > 4)
+      {
+        document.getElementById("result").value = "Все поля уже известны";
+      }
     }
     function getMinutesEnding(minutes) {
     var lastDigit = minutes % 10;
