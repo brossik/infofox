@@ -268,9 +268,20 @@ pre code.hljs
 .table tbody tr:nth-child(even) {
     background: #1d1d1d;
 }
-
 label{
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+}
+body {
+    font-size: 1.2rem; /* 14px / 16px = 0.875rem */
+}
+h2 {
+    font-size: 1.6rem;
+}
+h1{
+    font-size: 2rem;
+}
+label{
+    font-size: 1.3rem;
 }
 .CalculatorBlock label,
 .card select,
@@ -282,28 +293,53 @@ label{
 pre code.python {
     font-size: 1rem;
 }
-
 /* Your media queries... */
 @media screen and (max-width: 1200px) {
     body {
-        font-size: 2rem; /* 14px / 16px = 0.875rem */
+        font-size: 1.2rem; /* 14px / 16px = 0.875rem */
     }
     h2 {
-        font-size: 1.2rem;
+        font-size: 1.6rem;
     }
     h1{
+        font-size: 2rem;
+    }
+    label{
+        font-size: 1.3rem;
+    }
+    .CalculatorBlock label,
+    .card select,
+    .card select option,
+    .card select option:hover,
+    .CalculatorBlock input,
+    .CalculatorBlock button,
+    .CalculatorBlock #result,
+    pre code.python {
         font-size: 1rem;
     }
 }
 
 @media screen and (max-width: 998px) {
     body {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
     }
     h2 {
-        font-size: 1rem;
+        font-size: 1.3rem;
     }
     h1{
+        font-size: 1.9rem;
+    }
+    label{
+        font-size: 1.3rem;
+    }
+    .CalculatorBlock label,
+    .card select,
+    .card select option,
+    .card select option:hover,
+    .CalculatorBlock input,
+    .CalculatorBlock button,
+    .CalculatorBlock #result,
+    pre code.python {
         font-size: 1rem;
     }
 }
@@ -313,10 +349,23 @@ pre code.python {
         font-size: 1rem;
     }
     h2 {
-        font-size: 0.8rem;
+        font-size: 1.2rem;
     }
     h1{
-        font-size: 1.1rem;
+        font-size: 1.7rem;
+    }
+    label{
+        font-size: 1.2rem;
+    }
+    .CalculatorBlock label,
+    .card select,
+    .card select option,
+    .card select option:hover,
+    .CalculatorBlock input,
+    .CalculatorBlock button,
+    .CalculatorBlock #result,
+    pre code.python {
+        font-size: 1rem;
     }
 }
 
@@ -325,10 +374,23 @@ pre code.python {
         font-size: 0.9rem; /* 12px / 16px = 0.75rem */
     }
     h2 {
-        font-size: 0.6rem;
+        font-size: 1.1rem;
     }
     h1{
-        font-size: 0.9rem;
+        font-size: 1.5rem;
+    }
+    label{
+        font-size: 1.1rem;
+    }
+    .CalculatorBlock label,
+    .card select,
+    .card select option,
+    .card select option:hover,
+    .CalculatorBlock input,
+    .CalculatorBlock button,
+    .CalculatorBlock #result,
+    pre code.python {
+        font-size: 1rem;
     }
 }
 
