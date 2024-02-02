@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fox Python</title>
+  <link id="styleCode" rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/agate.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  <link id="styleLink" rel="stylesheet" href="styles-neon.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1 id="FirstHeader">Решение задания 2</h1>
+
+    <div class="card ChangeThemeBlock">
+      <label for="cssSelector">Выберите тему сайта:</label>
+      <select id="cssSelector" onchange="changeCSS()">
+        <option value="styles-neon.css">Неон</option>
+        <option value="styles-gold.css">Пустыня</option>
+      </select>
+    </div>
+    <div class="card LinkBlock">
+      <h2>Ссылки на другие темы</h2>
+      <ul class="list bluebox">
+        <li><a href="https://foxford.ru/courses/8903/lessons/238183" target="_blank">Вывод текста в программе</a>
+        </li>
+        <li><a href="https://foxford.ru/courses/8903/lessons/238184" target="_blank">Ввод текста пользователем</a>
+        </li>
+        <li><a href="https://foxford.ru/courses/8903/lessons/238185" target="_blank">Пример программы для
+            перевода
+            килограмм в граммы</a></li>
+      </ul>
+    </div>
+    <div class="card TheoryBlock">
+      <h2>Передача данных</h2>
+      <pre><code class="python">
+Для решения задачи надо:
+
+1. В зависимости от того, что известно в задаче, определяете пункт 2, 3 или 4.
+
+2. Определить время передачи данных
+3. Определить размер файла
+4. Определить скорость передачи данных
+
+5. Выбрать в калькуляторе, что неизвестно
+6. Вставить известные данные
+
+</code></pre>
+    </div>
+    <div class="card TheoryBlock">
+      <h2>Пример задачи из экзамена</h2>
+      <pre><code class="python">
+Демьян отправляет фото нового блюда, размером 5 Кбайт в чат по химии.
+При этом он заметил, что на передачу файла потребовалось ровно 80 секунд.
+Помогите Демьяну определить скорость передачи данных по сети (бит/сек).
+
+</code></pre>
+    </div>
+    <div class="card TheoryBlock">
+      <h2>Решение задачи</h2>
+      <pre><code class="python">
+1. Известно: размер файла и время
+2. Время передачи 80 секунд
+3. Вес файла 5 Кбайт     
+4. Неизвестна скорость передачи данных
+
+Ответ: 512 бит/секунду
+
+</code></pre>
+    </div>
+    <div class="card CalculatorBlock">
+      <h2>Сетевой калькулятор</h2>
+      <pre><code class="python">
+<label for="unknownField">Что неизвестно:</label>
+<select id="unknownField" onchange="updateCalculator()">
+<option value="none">Не выбрано </option>
+<option value="time">Время передачи</option>
+<option value="size">Размер файла</option>
+<option value="speed">Скорость передачи</option>
+</select><br>
+    
+<label for="time">Время передачи (сек):</label>
+<input type="number" id="time" min="1" disabled><br>
+    
+<label for="fileSize">Вес файла:</label>
+<div class="unit-selection">
+<input type="number" id="fileSize" min="1" disabled>
+<select id="sizeUnit" disabled>
+<option value="bits">биты</option>
+<option value="bytes">байты</option>
+<option value="kilobytes">килобайты</option>
+<option value="megabytes">мегабайты</option>
+<option value="gigabytes">гигабайты</option>
+</select>
+</div>
+    
+<label for="speed">Скорость передачи данных:</label>
+<div class="unit-selection">
+<input type="number" id="speed" min="1" disabled>
+<select id="speedUnit" disabled>
+<option value="bitsPerSecond">бит/сек</option>
+<option value="bytesPerSecond">байт/сек</option>
+<option value="kilobytesPerSecond">килобайты/сек</option>
+<option value="megabytesPerSecond">мегабайты/сек</option>
+<option value="gigabytesPerSecond">гигабайты/сек</option>
+</select>
+</div>
+    
+<label>Результат:</label>
+<input type="text" id="networkResult" readonly><br>
+    
+<button id="resultButton" onclick="calculateNetwork()">Рассчитать</button>
+      </code></pre>
+    </div>
+  </div>
+  <script>
+  function calculateNetwork() {
+    var unknownField = document.getElementById("unknownField").value;
+    var time = parseFloat(document.getElementById("time").value);
+    var size = parseFloat(document.getElementById("fileSize").value);
+    var sizeUnit = document.getElementById("sizeUnit").value;
+    var speed = parseFloat(document.getElementById("speed").value);
+    var speedUnit = document.getElementById("speedUnit").value;
+    var resultField = document.getElementById("networkResult");
+
+    if (unknownField === "time") {
+      var sizeInBits = convertSizeToBits(size, sizeUnit);
+      var timeInSeconds = sizeInBits / convertSpeedToBitsPerSecond(speed, speedUnit);
+      resultField.value = timeInSeconds.toFixed() + " секунд";
+    } else if (unknownField === "size") {
+      var timeInSeconds = time;
+      var sizeInBits = timeInSeconds * convertSpeedToBitsPerSecond(speed, speedUnit);
+      resultField.value = convertBitsToSize(sizeInBits);
+    } else if (unknownField === "speed") {
+      var sizeInBits = convertSizeToBits(size, sizeUnit);
+      var timeInSeconds = time;
+      var speedValue = sizeInBits / timeInSeconds;
+      resultField.value = speedValue.toFixed(0) + " бит/сек";
+    }
+  }
+
+  function convertSpeedToBitsPerSecond(speed, unit) {
+    switch (unit) {
+      case "bitsPerSecond":
+        return speed;
+      case "bytesPerSecond":
+        return speed * 8;
+      case "kilobytesPerSecond":
+        return speed * 8 * 1024;
+      case "megabytesPerSecond":
+        return speed * 8 * 1024 * 1024;
+      case "gigabytesPerSecond":
+        return speed * 8 * 1024 * 1024 * 1024;
+      default:
+        return speed;
+    }
+  }
+
+    function convertSizeToBits(size, unit) {
+      switch (unit) {
+        case "bits":
+          return size;
+        case "bytes":
+          return size * 8;
+        case "kilobytes":
+          return size * 8 * 1024;
+        case "megabytes":
+          return size * 8 * 1024 * 1024;
+        case "gigabytes":
+          return size * 8 * 1024 * 1024 * 1024;
+        default:
+          return size;
+      }
+    }
+
+    function convertBitsToSize(bits) {
+      if (bits < 8) {
+        return bits + " бит";
+      } else if (bits < 8 * 1024) {
+        return (bits / 8).toFixed(2) + " байт";
+      } else if (bits < 8 * 1024 * 1024) {
+        return (bits / (8 * 1024)).toFixed(2) + " кбайт";
+      } else if (bits < 8 * 1024 * 1024 * 1024) {
+        return (bits / (8 * 1024 * 1024)).toFixed(2) + " мбайт";
+      } else {
+        return (bits / (8 * 1024 * 1024 * 1024)).toFixed(2) + " гбайт";
+      }
+    }
+
+    function clearFields() {
+      document.getElementById("time").value = "";
+      document.getElementById("fileSize").value = "";
+      document.getElementById("sizeUnit").value = "bits";
+      document.getElementById("speed").value = "";
+      document.getElementById("networkResult").value = "";
+    }
+
+    function updateCalculator() {
+      var unknownField = document.getElementById("unknownField").value;
+
+      // Enable all fields
+      document.getElementById("time").disabled = false;
+      document.getElementById("fileSize").disabled = false;
+      document.getElementById("sizeUnit").disabled = false;
+      document.getElementById("speed").disabled = false;
+      document.getElementById("networkResult").disabled = false;
+      document.getElementById("resultButton").disabled = false;
+      document.getElementById("speedUnit").disabled = false;
+
+      // Disable the selected unknown field and clear other fields
+      if (unknownField === "none") {
+        document.getElementById("speed").disabled = true;
+        document.getElementById("fileSize").disabled = true;
+        document.getElementById("sizeUnit").disabled = true;
+        document.getElementById("time").disabled = true;
+        document.getElementById("networkResult").disabled = true;
+        document.getElementById("resultButton").disabled = true;
+        document.getElementById("speedUnit").disabled = true;
+        clearFields(); // вызываем функцию очистки полей
+      } else if (unknownField === "time") {
+        document.getElementById("time").disabled = true;
+        clearFields();
+      } else if (unknownField === "size") {
+        document.getElementById("fileSize").disabled = true;
+        document.getElementById("sizeUnit").disabled = true;
+        clearFields();
+      } else if (unknownField === "speed") {
+        document.getElementById("speed").disabled = true;
+        document.getElementById("speedUnit").disabled = true;
+        clearFields();
+      }
+    }
+
+  </script>
+  <script>
+    function changeCSS() {
+      var selectedValue = document.getElementById("cssSelector").value;
+      document.getElementById("styleLink").setAttribute("href", selectedValue);
+    }
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      hljs.highlightBlock(document.querySelector('code.python'));
+    });
+  </script>
+</body>
+
+</html>

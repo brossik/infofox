@@ -168,7 +168,7 @@ a:active {
 }
 
 .CalculatorBlock #result {
-    color: #da8df8dc;
+    color: #c2af87f1;
     background-color: #272727;
     border-radius: 10px;
     border: 2px solid #313131;
@@ -181,6 +181,71 @@ a:active {
     max-width: max-content;
     text-align: left;
     text-wrap: wrap;
+}
+
+.CalculatorBlock select {
+    padding: 8px;
+    margin-left: 16px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 2px solid #313131;
+    background-color: #1b1b1b;
+    color: #c2af87f1;
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    outline: none;
+    margin-top: 10px;
+    margin-left: 0px;
+    width: 70%; /* Adjust the width as needed */
+}
+
+/* Styles for options in the dropdown lists in the calculator */
+.CalculatorBlock select option {
+    background-color: #1b1b1b;
+    color: #c2af87f1;
+    border-radius: 10px;
+    border: 2px solid #313131;
+}
+
+/* Styles when hovering over options in the dropdown lists in the calculator */
+.CalculatorBlock select option:hover {
+    background-color: #190f2e;
+    color: #b9b9b9;
+}
+
+/* Set fixed width for the input fields and select in the CalculatorBlock */
+.CalculatorBlock input,
+.CalculatorBlock select {
+    width: 195px; /* Adjust the width as needed */
+    box-sizing: border-box; /* Include padding and border in the width */
+}
+
+/* Adjust the position of the unit selection */
+.CalculatorBlock .unit-selection {
+    display: flex;
+    align-items: center;
+}
+
+.CalculatorBlock .unit-selection label {
+    margin-left: 10px;
+    color: #da8df8dc;
+}
+
+.CalculatorBlock .unit-selection select {
+    width: 110px;
+    margin-left: 10px;
+}
+
+/* Добавьте следующий код в ваш файл стилей */
+input:disabled {
+    opacity: 0.6;
+}
+button:disabled {
+    opacity: 0.6;
+}
+select:disabled {
+    opacity: 0.6;
 }
 
 pre code.python {

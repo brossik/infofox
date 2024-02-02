@@ -58,7 +58,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* Стили для выпадающего списка */
-.card select {
+.ChangeThemeBlock select {
     padding: 8px;
     margin-left: 16px;
     font-size: 16px;
@@ -73,7 +73,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* Стили для опций в выпадающем списке */
-.card select option {
+.ChangeThemeBlock select option {
     background-color: #190f2e;
     color: #9cb6ff;
     border-radius: 10px;
@@ -81,7 +81,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* Стили при наведении на опцию в выпадающем списке */
-.card select option:hover {
+.ChangeThemeBlock select option:hover {
     background-color: #190f2e;
     color: #9cb6ff;
 }
@@ -178,6 +178,68 @@ a:active {
 
 .CalculatorBlock button:hover {
     background-color: #321644;
+}
+/* Styles for dropdown lists in the calculator */
+.CalculatorBlock select {
+    padding: 8px;
+    border-radius: 10px;
+    border: 2px solid #cf39cf4f;
+    background-color: #190f2e;
+    color: #b9b9b9;
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    outline: none;
+    margin-top: 10px;
+    width: 70%; /* Adjust the width as needed */
+}
+
+/* Styles for options in the dropdown lists in the calculator */
+.CalculatorBlock select option {
+    background-color: #190f2e;
+    color: #b9b9b9;
+    border-radius: 10px;
+    border: 2px solid #7db1ff85;
+}
+
+/* Styles when hovering over options in the dropdown lists in the calculator */
+.CalculatorBlock select option:hover {
+    background-color: #190f2e;
+    color: #b9b9b9;
+}
+
+/* Set fixed width for the input fields and select in the CalculatorBlock */
+.CalculatorBlock input,
+.CalculatorBlock select {
+    width: 195px; /* Adjust the width as needed */
+    box-sizing: border-box; /* Include padding and border in the width */
+}
+
+/* Adjust the position of the unit selection */
+.CalculatorBlock .unit-selection {
+    display: flex;
+    align-items: center;
+}
+
+.CalculatorBlock .unit-selection label {
+    margin-left: 10px;
+    color: #da8df8dc;
+}
+
+.CalculatorBlock .unit-selection select {
+    width: 110px;
+    margin-left: 10px;
+}
+
+/* Добавьте следующий код в ваш файл стилей */
+input:disabled {
+    opacity: 0.6;
+}
+button:disabled {
+    opacity: 0.6;
+}
+select:disabled {
+    opacity: 0.6;
 }
 
 /*.CalculatorBlock #result {
