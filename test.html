@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Онлайн компиляция Python с JDoodle</title>
+    <!-- Подключаем библиотеку jQuery (можно использовать CDN) -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+<h1>Онлайн компиляция Python с JDoodle</h1>
+
+<!-- Форма для ввода кода -->
+<form id="codeForm">
+    <label for="code">Введите свой код:</label>
+    <textarea id="code" name="code" rows="10" cols="40"></textarea>
+    <br>
+    <input type="submit" value="Выполнить">
+</form>
+
+<!-- Результат компиляции будет отображаться здесь -->
+<div id="result"></div>
+
+<script>
+    // Обработчик отправки формы
+    $("#codeForm").submit(function (event) {
+        event.preventDefault();
+
+        // Получаем значение кода
+        var code = $("#code").val();
+
+        // Отправляем запрос к API JDoodle
+        $.ajax({
+            url: "https://api.jdoodle.com/v1/execute",
+            method: "POST",
+            dataType: "json",
+            data: {
+                clientId: "6256f724eb2b88e8142a2d16eac7823",
+                clientSecret: "d70dab75f86347fb87a000b99111f6aa3ed48a8a767a6ec5088fa6ff1e739a28",
+                script: code,
+                language: "python3", // Указываем Python 3
+                versionIndex: "0" // Индекс версии языка программирования (0 - последняя версия)
+            },
+            success: function (response) {
+                // Отображаем результат компиляции
+                $("#result").html("<pre>" + JSON.stringify(response, null, 2) + "</pre>");
+            },
+            error: function (error) {
+                console.error("Ошибка при выполнении кода:", error);
+                $("#result").html("<p style='color: red;'>Ошибка при выполнении кода.</p>");
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
