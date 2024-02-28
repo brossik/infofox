@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fox Python</title>
+  <link id="styleCode" rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/agate.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <link id="styleLink" rel="stylesheet" href="styles-neon.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1 id="FirstHeader">Вывод текста в консоль</h1>
+
+    <div class="card ChangeThemeBlock">
+      <label for="cssSelector">Выберите тему сайта:</label>
+      <select id="cssSelector" onchange="changeCSS()">
+        <option value="styles-neon.css">Неон</option>
+        <option value="styles-gold.css">Пустыня</option>
+      </select>
+    </div>
+    <div class="card LinkBlock">
+      <h2>Ссылки на другие темы</h2>
+      <ul class="list bluebox">
+        <li><a href="https://foxford.ru/courses/8903/lessons/238183" target="_blank">Вывод текста в программе</a></li>
+        <li><a href="https://foxford.ru/courses/8903/lessons/238184" target="_blank">Ввод текста пользователем</a></li>
+        <li><a href="https://foxford.ru/courses/8903/lessons/238185" target="_blank">Пример программы для перевода
+            килограмм в граммы</a></li>
+      </ul>
+    </div>
+    <div class="card TheoryBlock">
+      <h2>Получение текста</h2>
+      <pre><code class="python">
+Чтобы получить текст от пользователя, надо использовать <a href="output2.html" target="_blank">функцию</a> input()
+
+</code></pre>
+    </div>
+    <div class="card TheoryBlock">
+      <h2>Сохранение введенного текста</h2>
+      <pre><code class="python">
+Для сохранения введенного текста в переменную нужно
+написать переменную, равно, и далее <a href="output2.html" target="_blank">функцию</a> input()
+
+a = input()
+
+Обратите внимание, что мы получаем текст, и если
+пользователь введет число, то мы не сможем его 
+умножать, делить и т.п, потому что это будет текст!
+
+</code></pre>
+    </div>
+    <div class="card TheoryBlock">
+      <h2>Превращение текста в число</h2>
+      <pre><code class="python">
+Чтобы полученный текст превратить в число, надо воспользоваться
+<a href="output2.html" target="_blank">функцией</a> int(), а внутрь положить переменную текста:
+        
+a = input() #введеный текст
+b = int(a) #введеный текст преобразованный в число
+
+
+Мы можем сократить код, и преобразовывать текст сразу:
+
+a = int(input()) #введенный текст преобразованный в число
+
+
+Если введенный текст будет содержать что-то кроме цифр,
+то будет ошибка. Например, 10 - нормально, 1a - ошибка.
+
+    </div>
+    <div class="card CodeBlock">
+      <h2>Пример кода на Python</h2>
+      <pre><code class="python">
+a = input() #получаем текст от пользователя
+
+print(a) #возвращаем пользователю, эффект "эхо"
+
+
+age = int(input()) #получаем от пользователя возраст
+
+print(age + 10) #возвращаем возраст через 10 лет
+
+</code></pre>
+    </div>
+    <div class="card OutputBlock">
+      <h2>Ввод в консоль</h2>
+      <pre><code class="python debug">
+Привет!
+14
+      </code></pre>
+    </div>
+    <div class="card OutputBlock">
+      <h2>Вывод в консоль</h2>
+      <pre><code class="python debug">
+Привет!
+24
+      </code></pre>
+    </div>
+  </div>
+  <script>
+    function changeCSS() {
+      var selectedValue = document.getElementById("cssSelector").value;
+      document.getElementById("styleLink").setAttribute("href", selectedValue);
+    }
+  </script>
+</body>
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    hljs.highlightBlock(document.querySelector('code.python'));
+  });
+</script>
+
+</html>
