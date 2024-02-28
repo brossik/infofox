@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fox Python</title>
+  <link id="styleCode" rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/agate.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <link id="styleLink" rel="stylesheet" href="styles-neon.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1 id="FirstHeader">Вывод текста в консоль</h1>
+
+    <div class="card ChangeThemeBlock">
+      <label for="cssSelector">Выберите тему сайта:</label>
+      <select id="cssSelector" onchange="changeCSS()">
+        <option value="styles-neon.css">Неон</option>
+        <option value="styles-gold.css">Пустыня</option>
+      </select>
+    </div>
+    <div class="card LinkBlock">
+      <h2>Ссылки на другие темы</h2>
+      <ul class="list bluebox">
+        <li><a href="https://foxford.ru/courses/8903/lessons/238183" target="_blank">Вывод текста в программе</a></li>
+        <li><a href="https://foxford.ru/courses/8903/lessons/238184" target="_blank">Ввод текста пользователем</a></li>
+        <li><a href="https://foxford.ru/courses/8903/lessons/238185" target="_blank">Пример программы для перевода
+            килограмм в граммы</a></li>
+      </ul>
+    </div>
+    <div class="card TheoryBlock">
+      <h2>Условия (ветвления) if( ):</h2>
+      <pre><code class="python">
+Мы хотим узнать, наше число больше 10 или нет.
+Для этого нам нужно условия как в математике:
+
+a > 10, но код не поймет что делать дальше
+
+Условия записываются так: if(), а внутри условие:
+
+if(a > 10):
+
+
+Далее мы с новой строки пишем что будет выполнятся,
+если условие в скобках окажется правдой, то есть a > 10:
+
+if(a > 10):
+    print("Больше 10")
+
+</code></pre>
+    </div>
+    <div class="card TheoryBlock">
+      <h2>Условия (ветвления) elif( ):</h2>
+      <pre><code class="python">
+Наш прошлый код выведет "Больше 10", если
+число больше 10, но если оно меньше ничего не произойдет
+
+Для этого мы можем написать несколько условий,
+условия после первого, пишутся elif():
+
+
+if(a > 10):
+    print("Больше 10")
+elif(a < 10):
+    print("Меньше или равно 10")
+
+
+Таких условий может быть сколько угодно!
+
+</code></pre>
+    </div>
+    <div class="card TheoryBlock">
+      <h2>Условия (ветвления) else:</h2>
+      <pre><code class="python">
+А что если нам нужно выводить что-то,
+если никакое условие не выполнилось? 
+
+Для этого мы можем написать конечное условие,
+пишется оно вот так, else: пишется без скобок!
+
+
+if(a > 10):
+    print("Больше 10")
+elif(a <= 10):
+    print("Меньше или равно 10")
+else:
+    print("Никакое условие не выполнилось!")
+
+
+Такое условие должно быть одно, и находиться в конце!
+
+</code></pre>
+    </div>
+    <div class="card TheoryBlock">
+      <h2>Несколько условий сразу</h2>
+      <pre><code class="python">
+А что если нам нужно в одном if(),
+проверить сразу несколько условий? 
+
+Для этого существуют слова разделители:
+
+and - должны выполниться оба условия
+or - должно выполниться хотя-бы одно условие
+not - должны выполниться оба условия
+
+
+Применение and:
+
+if(a > 10 and a < 20):
+    print("Больше 10 и меньше 20")
+
+
+Применение or:
+
+if(a < 5 or a > 10):
+    print("Меньше 5 или больше 10")
+
+
+Применение and:
+
+if(not a > 10):
+    print("Не больше 10")
+
+</code></pre>
+    </div>
+    <div class="card CodeBlock">
+      <h2>Пример кода на Python</h2>
+      <pre><code class="python">
+print("Введите свой возраст!") #просим ввести возраст
+
+age = int(input()) #получаем возраст
+
+#если age меньше 14
+if(age < 14):
+    print("Вам меньше 14 лет!")
+
+
+#если age больше или равно 14 и меньше 18
+elif(age >= 14 and age 18):
+    print("Вам от 14 лет до 18 лет!")
+
+
+#если никакое условие не сработало
+else:
+    print("Вам 18 или больше лет!")
+    
+</code></pre>
+    </div>
+    <div class="card OutputBlock">
+      <h2>Вывод в консоль</h2>
+      <pre><code class="python debug">
+Введите свой возраст!
+      </code></pre>
+    </div>
+    <div class="card OutputBlock">
+      <h2>Ввод в консоль</h2>
+      <pre><code class="python debug">
+15
+      </code></pre>
+    </div>
+    <div class="card OutputBlock">
+      <h2>Вывод в консоль</h2>
+      <pre><code class="python debug">
+Вам от 14 лет до 18 лет!
+      </code></pre>
+    </div>
+  </div>
+  <script>
+    function changeCSS() {
+      var selectedValue = document.getElementById("cssSelector").value;
+      document.getElementById("styleLink").setAttribute("href", selectedValue);
+    }
+  </script>
+</body>
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    hljs.highlightBlock(document.querySelector('code.python'));
+  });
+</script>
+
+</html>
